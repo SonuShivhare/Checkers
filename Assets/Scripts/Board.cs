@@ -46,7 +46,7 @@ public class Board : MonoBehaviour
         if (instance == null) instance = this;
 
         boardSegments = new BoardSegments[8, 8];
-
+        ResetSize();
         canvasCenter = GetComponent<Canvas>().GetComponent<RectTransform>().position;
         segmentSize = segment1.GetComponent<RectTransform>().sizeDelta;
         startingPoint.x = canvasCenter.x - (4 * segmentSize.x) + segmentSize.x / 2;
@@ -118,5 +118,17 @@ public class Board : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ResetSize()
+    {
+        float width = Screen.width / 9;
+
+        Debug.Log("Width: " + Screen.width + " " + width);
+
+        segment1.GetComponent<RectTransform>().sizeDelta = new Vector2(width, width);
+        segment2.GetComponent<RectTransform>().sizeDelta = new Vector2(width, width);
+        men1.GetComponent<RectTransform>().sizeDelta = new Vector2(width, width);
+        men2.GetComponent<RectTransform>().sizeDelta = new Vector2(width, width);
     }
 }

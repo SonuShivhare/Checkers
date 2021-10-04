@@ -33,6 +33,9 @@ public class HighlightDate : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
+
+        float width = Screen.width / 9;
+        highlight.GetComponent<RectTransform>().sizeDelta = new Vector2(width, width);
     }
 
     public void GenrateHighlight()
